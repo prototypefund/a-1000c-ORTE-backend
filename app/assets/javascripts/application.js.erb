@@ -34,10 +34,21 @@
       $('#flash').slideUp(2000);
     }, 3500);
 
-      $('#place_tag_list').select2({
-        tags: true,
-        tokenSeparators: [',']
-      });
+
+    $('#selection_toggler_label').click(function(e){
+      console.log("selection_toggler clicked");
+      if ( $('#selection').is(":visible") ) {
+        $('#selection').hide('slow');
+      } else {
+        $('#selection').show('slow');
+      }
+    });
+
+
+    $('#place_tag_list').select2({
+      tags: true,
+      tokenSeparators: [',']
+    });
       // tags option enables free text responses
 
     // select another color (for layers)

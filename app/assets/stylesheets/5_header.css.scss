@@ -12,17 +12,29 @@ header {
     border: 1px solid #898901;
     font-size: 12px;
     color: #999;
-    padding: 0rem 0.4rem;
+    padding: 0rem 0.4rem 0 1.2rem;
     width: 150px;
     margin: 0;
   }
   .menu input:focus {
     background-color: #ddd;
-    background-color: transparent;
+    background-color: rgba(255,255,255,0.1);
     color: #aaa;
     border: 1px solid #aa0;
     box-shadow: 0 0 1px #A8A800;
   }
+  .menu div.q_query {
+  }
+
+  .menu div.q_query:before {
+    content: url("data:image/svg+xml; utf8, %3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 399.934 399.934' style='enable-background:new 0 0 399.934 399.934;' %3E %3Cg%3E %3Cpath fill='%23898901' d='M155.84,311.723c23.654,0,46.008-5.446,66.093-14.916l87.585,87.618c20.703,20.679,54.234,20.679,74.88,0c20.703-20.655,20.703-54.234,0-74.88l-87.585-87.65c9.47-20.053,14.916-42.407,14.916-66.061C311.73,69.922,241.792,0,155.84,0C69.954,0,0.007,69.922,0.007,155.833C0.015,241.801,69.954,311.723,155.84,311.723zM155.84,45.414c60.924,0,110.451,49.552,110.451,110.419c0,60.956-49.527,110.484-110.451,110.484c-60.867,0-110.419-49.527-110.419-110.484C45.421,94.966,94.973,45.414,155.84,45.414z'/%3E%3C/g%3E%3C/svg%3E");
+    display:block;
+    color: #A8A800;
+    width: 16px;
+    height: 0px;
+    padding-left: 6px;
+  }
+
   .menu ::placeholder {
     font-size: 12px;
     color: #898901;
@@ -37,4 +49,26 @@ header {
   }
 
 
+}
+
+#selection_toggler_label.switch-paddle {
+    width: 5rem;
+    height: 1.6rem;
+    background: transparent;
+    border: 1px solid #898901;
+    color: #898901;
+    font-size: 12px;
+    text-transform: unset;
+    font-weight: bold;
+    margin-top: 9px;
+    margin-right: 6px;
+    .switch-inactive {
+      right: 6%;
+    }
+}
+#selection_toggler_label.switch-paddle::after {
+    width: 1rem;
+    height: 1rem;
+    ;
+    background: #898901;
 }
