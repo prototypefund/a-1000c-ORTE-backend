@@ -1,0 +1,57 @@
+
+#form-wrapper.large-wrapper
+
+  %p.hint.text-left
+    = link_to map_url(@annotation.place.layer.map) do
+      = @annotation.place.layer.map.title
+    \—
+    = link_to map_layer_url(@annotation.place.layer.map,@annotation.place.layer) do
+      = @annotation.place.layer.title
+
+  #annotations
+
+    %h3
+      Annotation to
+      = link_to map_layer_place_path(@annotation.place.layer.map.id, @annotation.place.layer.id, @annotation.place.id) do
+        = @annotation.place.title
+    %hr
+    .grid-x.grid-padding-x
+      .large-8.medium-8.cell
+        - if @annotation.person
+          %p
+            %i.fi.fi-comment-quotes
+            = @annotation.person.name
+      .large-4.medium-4.cell
+        %p.text-right
+
+    - if @annotation.title
+      %h5
+        = @annotation.title
+    - if @annotation.text
+      .@annotation_text
+        - if params[:action] == 'show'
+          =h @annotation.text.html_safe
+        - else
+          = truncate @annotation.text.html_safe, length: 100, separator: /.../
+      - if @annotation.tag_list
+        %p
+          - @annotation.tags.each do |tag|
+            %span.label.secondary.tag
+              = link_to map_tag_path(@map,tag) do
+                %i.fi-price-tag
+                = tag
+        .annotation_metadata
+          %p.hint
+            #{@annotation.source} &mdash;
+            #{l(@annotation.created_at)}
+            \&mdash;
+            = link_to edit_annotation_path(@annotation, back_to: 'show'), class: 'button small rounded', title: 'Edit this annotation' do
+              %i.fi.fi-pencil.fi-18
+
+
+  %hr
+  .grid-x.grid-padding-x
+    .large-6.cell
+      = link_to map_layer_place_path(@annotation.place.layer.map.id, @annotation.place.layer.id, @annotation.place.id), :class=>"button" do
+        Go to place
+    .large-6.cell

@@ -8,6 +8,8 @@ class AnnotationsController < ApplicationController
     @annotation = Annotation.all
   end
 
+  def show; end
+
   def new
     @annotation = Annotation.new
     @annotation.place_id = params[:place_id]

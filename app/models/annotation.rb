@@ -14,4 +14,8 @@ class Annotation < ApplicationRecord
       "#{person.name}"
     end
   end
+
+  def show_link
+    ApplicationController.helpers.show_link(title, id)
+  end
 end
