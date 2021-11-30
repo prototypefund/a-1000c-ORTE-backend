@@ -171,6 +171,12 @@
     });
 
     // ---------------
+    // Get url parameters
+    var params = {};
+    window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
+      params[key] = value;
+    });
+    // ---------------
 
     var text_layers = L.featureGroup();
     var image_layers = L.layerGroup();
@@ -202,7 +208,7 @@
         layers: [marker_meta_layers],
         minZoom: 1,
         maxZoom: 20
-    }).setView([MAP_LAT, MAP_LON], 12);
+    }).setView([params.lat || MAP_LAT, params.lon || MAP_LON], params.zoom || 12);
 
 
     L.control.layers(overlays).addTo(map);
